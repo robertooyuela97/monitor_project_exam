@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Componentes de Sistema</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 2em;
+            background: linear-gradient(135deg, #003366, #001a33);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-shadow: 1px 1px 4px #00000099;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1em;
+            margin-bottom: 2em;
+            color: #d0e8ff;
+        }
+
+        .card {
+            background-color: rgba(0, 64, 128, 0.8); /* azul translúcido */
+            border: 1px solid #ffffff33;
+            padding: 1.5em;
+            margin: 1.5em auto;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #aad4ff;
+            border-bottom: 1px solid #ffffff22;
+            padding-bottom: 0.3em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        p {
+            margin: 0.4em 0;
+            font-size: 1.05em;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        button {
+            background-color: #0055aa;
+            color: white;
+            border: none;
+            padding: 0.7em 1.5em;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0077dd;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        setInterval(() => location.reload(), 15000);
+    </script>
+</head>
+<body>
+    <h1>🖥 Monitor del Sistema</h1>
+    <div class="subtitle">
+        Roberto Rafael Oyuela Midence 202420110313 &nbsp;|&nbsp;
+        Jorge Luis Diaz Espinal 202310110124 &nbsp;|&nbsp;
+        Angel Jafet Contreras Carranza 20220060275
+    </div>
+
+    <div class="card">
+        <h2>🧠 CPU</h2>
+        <p>Uso: {{ cpu }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>💾 RAM</h2>
+        <p>Total: {{ ram.total_gb }} GB</p>
+        <p>Usada: {{ ram.used_gb }} GB</p>
+        <p>Uso: {{ ram.percent }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>🗄️ Disco</h2>
+        <p>Total: {{ disk.total_gb }} GB</p>
+        <p>Usado: {{ disk.used_gb }} GB</p>
+        <p>Libre: {{ disk.free_gb }} GB</p>
+        <p>Uso: {{ disk.percent }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>⚙️ Sistema</h2>
+        <p>SO: {{ system.os }} {{ system.release }}</p>
+        <p>Versión: {{ system.version }}</p>
+        <p>Núcleos: {{ system.cpu_cores }}</p>
+    </div>
+
+    <form method="get">
+        <button type="submit">Actualizar 🔄</button>
+    </form>
+</body>
+</html>
